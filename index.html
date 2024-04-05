@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Contact Form 09</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .form {
+            position: relative;
+            background-image: url(form-bg.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 20px;
+        }
+
+        .form::before {
+            content: '';
+            /* Required for pseudo-elements */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
+            /* Adjust opacity as needed */
+            border-radius: inherit;
+        }
+
+        img {
+            height: 50px;
+            width: 200px;
+            border-radius: 5px;
+            margin-top: 50px;
+        }
+
+        .input-with-button {
+            position: relative;
+        }
+
+        .input-with-button input[type="text"] {
+            padding-right: 40px;
+            /* Adjust button padding as needed */
+        }
+
+        .input-with-button button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 40px;
+            /* Adjust button width as needed */
+            border: none;
+            background-color: #ddd;
+            /* Button background color */
+            color: #333;
+            /* Button text color */
+            cursor: pointer;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        .input-group {
+            color: black;
+        }
+
+        .input-group input[type="tel"]:focus,
+        .input-group input[type="number"]:focus {
+            background-color: white;
+        }
+
+        body {
+            background-image: url(everest.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .wrapper {
+            margin-bottom: 50px;
+        }
+
+        .container {
+            margin-top: -50px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            visibility: hidden;
+            opacity: 0;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Overlay color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            visibility: hidden;
+            opacity: 0;
+            background-color: #fff;
+            padding: 20px;
+            max-width: 50%;
+            max-height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            transition: visibility 0s, opacity 0.5s ease-in-out;
+        }
+
+        /* Close Button */
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .modal.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .modal-content.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Adjust video player size */
+        #videoPlayer {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="ftco-section">
+        <div class="container form">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <img src="gcash-logo.jpg" alt="">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-md-12">
+                    <div class="wrapper ">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8 mb-5">
+                                <div class="row">
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="contact-wrap">
+                                    <h3 class="mb-4 text-center" style="font-weight: bold; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: white; text-shadow: 0px 0px 10px black;">Gcash Generator</h3>
+                                    <div id="form-message-warning" class="mb-4 w-100 text-center"></div>
+                                    <div id="form-message-success" class="mb-4 w-100 text-center">
+                                        Your message was sent, thank you!
+                                    </div>
+                                    <form method="POST" id="contactForm" name="contactForm" class="contactForm">
+                                        <div class="row">
+                                            <div class="input-group mb-3 col-md-12">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">+63</span>
+                                                </div>
+                                                <input type="tel" class="input form-control">
+                                            </div>
+                                            <div class="input-group mb-3 col-md-12">
+                                                <input type="number" class="input form-control" placeholder="Amount">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input type="button" value="Send Cash" class="btn btn-primary" id="sendButton">
+                                                    <div id="videoModal" class="modal">
+                                                        <!-- Modal content -->
+                                                        <div class="modal-content">
+                                                            <span class="close">&times;</span>
+                                                            <video id="videoPlayer" width="560" height="315" autoplay controls>
+                                                                <source src="video.mp4" type="video/mp4">
+                                                                Your browser does not support the video tag.
+                                                            </video>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.getElementById('sendButton').addEventListener('click', function () {
+            var button = this;
+            var i = 0;
+            var repetitions = 0;
+            var intervalId = setInterval(update, 600);
+
+            function update() {
+                i = ++i % 4;
+                button.value = 'Sending' + '.'.repeat(i);
+                if (i === 0) {
+                    repetitions++;
+                    if (repetitions === 1) {
+                        clearInterval(intervalId);
+                        button.value = 'Send Cash'; // Reset button text after animation completes
+                        openModal(); // Open the modal after animation ends
+                    }
+                }
+            }
+
+            function openModal() {
+                var modal = document.getElementById('videoModal');
+                modal.classList.add('show'); // Show the modal
+                var modalContent = modal.getElementsByClassName('modal-content')[0];
+                modalContent.classList.add('show'); // Show the modal content
+                document.getElementById('videoPlayer').play(); // Autoplay the video
+            }
+
+            // Close modal when close button is clicked
+            var closeButton = document.getElementsByClassName('close')[0];
+            closeButton.onclick = function () {
+                var modal = document.getElementById('videoModal');
+                modal.classList.remove('show'); // Hide the modal
+                var modalContent = modal.getElementsByClassName('modal-content')[0];
+                modalContent.classList.remove('show'); // Hide the modal content
+                document.getElementById('videoPlayer').pause(); // Pause the video
+            }
+        });
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
